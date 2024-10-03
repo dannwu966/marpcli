@@ -16,7 +16,7 @@ if not os.path.exists(app.config['UPLOAD_FOLDER']):
 # 設定日誌
 logging.basicConfig(level=logging.INFO)
 
-@app.route('/upload', methods=['POST'])
+@app.route('/marpmd_upload', methods=['POST'])
 def upload_markdown():
     try:
         content = request.get_data(as_text=True)
