@@ -11,10 +11,4 @@ services:
       - "8080:8080"
       - "37717:37717"
       - "8290:8290"
-    command: -s ./markdown
-    networks:
-      - docker_default
-
-networks:
-  docker_default:
-    driver: bridge
+    command: -s /home/marp/app/markdown
