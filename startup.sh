@@ -3,6 +3,10 @@
 # 設定 UPLOAD_FOLDER 環境變數
 export UPLOAD_FOLDER=markdown
 
+# 設定 URL 連結
+export PREVIEW_URL="http://localhost:8080"
+export DOWNLOAD_URL="http://localhost:8080"
+
 # 啟動虛擬環境
 source /home/marp/venv/bin/activate
 

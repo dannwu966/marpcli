@@ -8,6 +8,8 @@ app = Flask(__name__)
 
 # 從環境變數中讀取 UPLOAD_FOLDER 配置
 app.config['UPLOAD_FOLDER'] = os.getenv('UPLOAD_FOLDER', 'markdown')
+app.config['PREVIEW_URL'] = os.getenv('PREVIEW_URL', 'http://localhost:8080')
+app.config['DOWNLOAD_URL'] = os.getenv('DOWNLOAD_URL', 'http://localhost:8080')
 
 # 確保目錄存在
 if not os.path.exists(app.config['UPLOAD_FOLDER']):
@@ -33,8 +35,8 @@ def upload_markdown():
         else:
             return jsonify({
                 'message': 'Markdown文件已儲存',
-                'preview_link': f'http://localhost:8080/{file_name}',
-                'download_link': f'http://localhost:8080/{file_name}?pptx'
+                'preview_link': f"{app.config['PREVIEW_URL']}/{file_name}",
+                'download_link': f"{app.config['DOWNLOAD_URL']}/{file_name}?pptx"
             }), 201
     except Exception as e:
         logging.error(f"Error uploading markdown: {e}")
