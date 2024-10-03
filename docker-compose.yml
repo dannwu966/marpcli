@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  marp:
+    image: marpteam/marp-cli
+    init: true
+    volumes:
+      - ./:/home/marp/app
+    environment:
+      - LANG=${LANG}
+      - MARP_USER=${UID}:${GID}
+    ports:
+      - "8080:8080"
+      - "37717:37717"
+    command: -s ./markdown
+    networks:
+      - docker_default
+
+networks:
+  docker_default:
+    external: true
