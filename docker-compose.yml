@@ -1,14 +1,14 @@
 services:
   marp:
-    build: .
-    init: true
-    volumes:
-      - ./:/home/marp/app
-    environment:
-      - LANG=${LANG}
-      - MARP_USER=1000:1000
+    build: .  # 指定當前目錄下的 Dockerfile，會每次構建映像
+    container_name: my-marp-container  # 指定容器名稱
     ports:
-      - "8080:8080"
-      - "37717:37717"
-      - "8290:8290"
-    command: -s /home/marp/app/markdown
+      - "8080:8080"  # 映射 Marp 服務的端口
+      - "8290:8290"  # 映射 Flask 服務的端口
+      - "37717:37717"  # 映射其他服務的端口
+    environment:
+      - LANG=ZH-TW.UTF-8  # 語言設置
+      - MARP_USER=1000:1000  # 設置容器內用戶和組的 ID
+    volumes:
+      - .:/home/marp/app  # 將當前目錄掛載進容器
+    command: ["-s", "./markdown"]  # 傳遞給 CMD 的參數

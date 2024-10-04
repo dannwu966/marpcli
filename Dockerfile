@@ -20,6 +20,11 @@ ENV LANG=ZH-TW.UTF-8
 
 # 暴露 Flask API 的埠
 EXPOSE 8290
+EXPOSE 8080
+EXPOSE 37717
 
-# 設定 ENTRYPOINT 和 CMD
+# 設定 ENTRYPOINT
 ENTRYPOINT ["sh", "./startup.sh"]
+
+# CMD 可以指定 marp 的參數
+CMD ["-s", "./markdown"]

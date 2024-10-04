@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# 使用 Node.js 啟動 Marp 服務，使用 CMD 傳遞的參數
+exec su-exec "$MARP_USER" node /home/marp/.cli/marp-cli.js "$@" --port 8080 &  # 在後台運行 Marp 服務
+
 # 設定 UPLOAD_FOLDER 環境變數
 export UPLOAD_FOLDER=markdown
 
