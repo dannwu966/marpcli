@@ -1,5 +1,5 @@
 # 使用 marpteam/marp-cli 作為基礎映像
-FROM marpteam/marp-cli
+FROM marpteam/marp-cli:v3.4.0
 
 # 設定工作目錄
 WORKDIR /home/marp/app
