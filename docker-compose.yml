@@ -12,6 +12,7 @@ services:
     volumes:
       - .:/home/marp/app  # 將當前目錄掛載進容器
     command: ["-s", "./markdown"]  # 傳遞給 CMD 的參數
+    restart: always
     networks:
       - default
       - docker_default
